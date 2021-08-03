@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>online shopping</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hom/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url({% static 'hom/images/demo/backgrounds/01.jpg' %});">
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+      <div class="fl_left">
+        <!-- ################################################################################################ -->
+
+        <!-- ################################################################################################ -->
+      </div>
+
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="/">Shop by choice</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="clear">
+           <li class="active"><a href="/">Home</a></li>
+          {% if user.is_authenticated %}
+
+
+           <li class="active"><a href="{% url 'cartDetails' %}">Cart</a></li>
+          <li><a class="active" href="{% url 'logout' %}">Logout</a></li>
+
+          {% else %}
+          <li><a class="active" href="{% url 'register' %}">Register</a></li>
+          <li><a class="active" href="{% url 'login' %}">Login</a></li>
+          <li class="active"><a href="{% url 'cartDetails' %}">Cart</a></li>
+<!--          <li class="active"><a href="{% url 'cartDetails' %}">Cart</a></li>-->
+          {% endif %}
+
+          <ul>
+<!--              <li><a href="/">Allproduct</a></li>-->
+<!--              {% for i in ct %}-->
+<!--              <a href="{{i.get_url}}">{{i.name}}</a>-->
+<!--              {% endfor %}-->
+<!--              <li><a href="hom/pages/full-width.html">Full Width</a></li>-->
+<!--              <li><a href="hom/pages/sidebar-left.html">Sidebar Left</a></li>-->
+<!--              <li><a href="hom/pages/sidebar-right.html">Sidebar Right</a></li>-->
+<!--              <li><a href="hom/pages/basic-grid.html">Basic Grid</a></li>-->
+<!--              <li><a href="hom/pages/font-icons.html">Font Icons</a></li>-->
+            </ul>
+          </li>
+
+
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+         </header>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+</body>
+</html>
